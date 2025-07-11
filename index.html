@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senior Technical Trainer Portfolio</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- AOS for animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background: linear-gradient(135deg, #f3f4f6 0%, #ffffff 100%);
+            overflow-x: hidden;
+        }
+
+        header {
+            background: #1e293b;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #0891b2 !important;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-brand:hover {
+            color: #06b6d4 !important;
+        }
+
+        .navbar-nav .nav-link {
+            color: #e2e8f0 !important;
+            font-weight: 500;
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: #0891b2 !important;
+        }
+
+        .navbar-nav .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            background: #0891b2;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: width 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover::after,
+        .navbar-nav .nav-link.active::after {
+            width: 60%;
+        }
+
+        #hero {
+            background: linear-gradient(rgba(30, 41, 59, 0.8), rgba(30, 41, 59, 0.8)), url('https://source.unsplash.com/random/1920x1080?tech');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        #hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        #hero p {
+            font-size: 1.5rem;
+            max-width: 700px;
+            color: #e2e8f0;
+        }
+
+        section {
+            padding: 100px 0;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            color: #1e293b;
+            position: relative;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 100px;
+            height: 5px;
+            background: #0891b2;
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        #about {
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        #about p {
+            font-size: 1.2rem;
+            color: #4b5563;
+        }
+
+        .skill-card {
+            background: #ffffff;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .skill-card i {
+            font-size: 3rem;
+            color: #0891b2;
+            margin-bottom: 1.5rem;
+        }
+
+        .certifications-list li {
+            font-size: 1.2rem;
+            padding: 20px;
+            background: #f9fafb;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .certifications-list li:hover {
+            background: #e0f2fe;
+            transform: translateX(10px);
+        }
+
+        .experience-item {
+            background: #f9fafb;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .experience-item:hover {
+            background: #e0f2fe;
+            transform: translateX(10px);
+        }
+
+        .contact-form {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-control:focus {
+            border-color: #0891b2;
+            box-shadow: 0 0 8px rgba(8, 145, 178, 0.5);
+        }
+
+        .btn-primary {
+            background: #0891b2;
+            border: none;
+            padding: 12px 40px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border-radius: 10px;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: #1e293b;
+            transform: scale(1.05);
+        }
+
+        footer {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .social-links a {
+            color: #e2e8f0;
+            font-size: 1.8rem;
+            margin: 0 20px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #0891b2;
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 80px 15px;
+            }
+
+            #hero h1 {
+                font-size: 2.5rem;
+            }
+
+            #hero p {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .navbar-nav {
+                text-align: center;
+                background: #1e293b;
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="#">Pritam Chatterjee</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link active" href="#hero">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                        < herbicide class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#achievements">Achievements</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <div class="container text-center" data-aos="zoom-in">
+            <h1>Senior Technical Trainer</h1>
+           
+            <h2> <br> Java Full Stack <br>MuleSoft <br> Salesforce-Administration <br> Platform Development</h2>
+            <p class="lead"><center><marquee>Need Corporate Training?</marquee></center></p>
+            <a href="#contact" class="btn btn-primary mt-4">Get in Touch</a>
+        </div>
+    </section>
+
+    <section id="about" class="container">
+        <div class="text-center" data-aos="fade-up">
+            <h2 class="section-title">About Me</h2>
+            <p class="lead">Dynamic and engaging Senior Technical Trainer with over 12 years of experience in India and overseas. I specialize in designing and delivering training programs on Java Full Stack, MuleSoft, Salesforce, and Databases, fostering a positive learning environment. Dedicated to helping individuals and teams acquire practical skills to enhance proficiency and productivity, with excellent cross-cultural communication and adaptation skills, supporting global operations.</p>
+        </div>
+    </section>
+
+    <section id="skills" class="container">
+        <h2 class="section-title">My Skills</h2>
+        <div class="row g-4">
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="skill-card">
+                    <i class="fab fa-java"></i>
+                    <h3>Java Full Stack Development</h3>
+                    <p>Expertise in Core Java, Advanced Java, Servlet, JSP, Hibernate, Spring, Spring Boot, REST, Microservices, Security, Web Services, JUnit.</p>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="skill-card">
+                    <i class="fas fa-cloud"></i>
+                    <h3>MuleSoft</h3>
+                    <p>Proficient in MCD Fundamentals - Mule 4, On-Premises Deployment, DataWeave, Access Management.</p>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="skill-card">
+                    <i class="fab fa-salesforce"></i>
+                    <h3>Salesforce</h3>
+                    <p>Specialized in Administration, Apex, Async Apex, Integration, Aura, Lightning Web Components (LWC).</p>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+                <div class="skill-card">
+                    <i class="fas fa-database"></i>
+                    <h3>Databases</h3>
+                    <p>Skilled in MySQL, Oracle, MS-SQL Server, MongoDB.</p>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="500">
+                <div class="skill-card">
+                    <i class="fab fa-html5"></i>
+                    <h3>Front End</h3>
+                    <p>Proficient in HTML5, JavaScript, CSS3, Bootstrap, XML, Angular, React.</p>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="600">
+                <div class="skill-card">
+                    <i class="fas fa-tools"></i>
+                    <h3>DevOps</h3>
+                    <p>Experienced with Git, GitHub, BitBucket, Jenkins, Maven, Docker.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="container">
+        <h2 class="section-title">Work Experience</h2>
+        <div class="experience-item" data-aos="fade-up" data-aos-delay="100">
+            <h4>IT Trainer - Freelancer</h4>
+            <p><strong>Multiple Locations in India</strong> (01/2025 - Present)</p>
+            <ul>
+                <li>Delivered corporate training on Java (Core, Advanced, Spring, Hibernate, JPA, Spring Boot, REST, Microservices, Security), Web Technologies (HTML5, CSS3, JS, Angular, React), Databases (MySQL, MongoDB, Oracle), MuleSoft (MCD Fundamentals Mule 4, On-Premises Deployment, DataWeave, Access Management), and Salesforce (Admin, Apex, Async Apex, Integration, Aura, LWC).</li>
+                <li>Clients: Wipro, MuleSoft and Salesforce clients, various engineering colleges.</li>
+            </ul>
+        </div>
+        <div class="experience-item" data-aos="fade-up" data-aos-delay="200">
+            <h4>Technical Training Senior Specialist - NTT DATA</h4>
+            <p><strong>Gurgaon, India</strong> (10/2020 - 11/2024)</p>
+            <ul>
+                <li>Delivered training on Salesforce (Configuration & Customization), MuleSoft (MCD Fundamentals - Mule 4, On-Premises Deployment, DataWeave, Access Management), Java, DevOps, Testing, and Databases.</li>
+                <li>Trained trainers in MuleSoft and Salesforce.</li>
+            </ul>
+        </div>
+        <div class="experience-item" data-aos="fade-up" data-aos-delay="300">
+            <h4>IT Trainer - NIIT China (Ningxia University)</h4>
+            <p><strong>Yinchuan, China</strong> (08/2018 - 10/2020)</p>
+            <ul>
+                <li>Delivered training on programming languages and databases.</li>
+                <li>Developed and managed training content for Java Full Stack Development.</li>
+            </ul>
+        </div>
+        <div class="experience-item" data-aos="fade-up" data-aos-delay="400">
+            <h4>IT Trainer (Contractual Consultant) - TalentSprint</h4>
+            <p><strong>Hyderabad, India</strong> (04/2018 - 07/2018)</p>
+            <ul>
+                <li>Delivered training on building programming skills and Java Full Stack.</li>
+                <li>Developed and managed training content.</li>
+            </ul>
+        </div>
+        <div class="experience-item" data-aos="fade-up" data-aos-delay="500">
+            <h4>IT Trainer - Independent Freelancer</h4>
+            <p><strong>Hyderabad, India</strong> (07/2017 - 03/2018)</p>
+            <ul>
+                <li>Delivered training on Java, .NET, PHP, and Databases.</li>
+                <li>Managed IT projects for engineering students and conducted technical interviews.</li>
+            </ul>
+        </div>
+        <div class="experience-item" data-aos="fade-up" data-aos-delay="600">
+            <h4>IT Trainer (Training Officer) - Aptech Qatar</h4>
+            <p><strong>Doha, Qatar</strong> (12/2014 - 06/2017)</p>
+            <ul>
+                <li>Delivered training to corporate clients and students on software technologies.</li>
+                <li>Managed academic web development projects in Java, .NET, PHP.</li>
+            </ul>
+        </div>
+        <div class="experience-item" data-aos="fade-up" data-aos-delay="700">
+            <h4>Technical Trainer-Software - CMS Info Systems</h4>
+            <p><strong>Calicut, India</strong> (07/2014 - 12/2014)</p>
+            <ul>
+                <li>Delivered training on programming languages and databases.</li>
+                <li>Conducted seminars in schools and colleges on IT technologies.</li>
+            </ul>
+        </div>
+        <div class="experience-item" data-aos="fade-up" data-aos-delay="800">
+            <h4>Software Trainer - Aptech</h4>
+            <p><strong>West Bengal, India</strong> (09/2013 - 07/2014)</p>
+            <ul>
+                <li>Delivered training on programming languages and databases.</li>
+            </ul>
+        </div>
+        <div class="experience-item" data-aos="fade-up" data-aos-delay="900">
+            <h4>Associate - Linde Global Support Services</h4>
+            <p><strong>Kolkata, India</strong> (10/2012 - 09/2013)</p>
+            <ul>
+                <li>Involved in global application support for SAP R3 Security and Active Directory Operations.</li>
+                <li>Prepared SAP reports and worked with HPSM tool.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="certifications" class="container">
+        <h2 class="section-title">Certifications</h2>
+        <ul class="certifications-list list-unstyled" data-aos="fade-up">
+            <li><i class="fas fa-certificate me-2"></i> Salesforce Certified Platform Developer I</li>
+            <li><i class="fas fa-certificate me-2"></i> MuleSoft Certified Developer - Level 1</li>
+            <li><i class="fas fa-certificate me-2"></i> Salesforce Certified Administrator</li>
+            <li><i class="fas fa-certificate me-2"></i> Oracle Certified Java Programmer</li>
+        </ul>
+    </section>
+
+    <section id="achievements" class="container">
+        <h2 class="section-title">Achievements</h2>
+        <ul class="certifications-list list-unstyled" data-aos="fade-up">
+            <li><i class="fas fa-star me-2"></i> Star Performer Award, NTT DATA</li>
+            <li><i class="fas fa-star me-2"></i> MVP Award, NTT DATA</li>
+            <li><i class="fas fa-star me-2"></i> Best Trainer Award, CMS Info Systems</li>
+            <li><i class="fas fa-star me-2"></i> Multiple other rewards across various workplaces</li>
+        </ul>
+    </section>
+
+    <section id="contact" class="container">
+        <h2 class="section-title">Contact Me</h2>
+        <div class="contact-form" data-aos="fade-up">
+            <div class="mb-3">
+                <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+            </div>
+            <div class="mb-3">
+                <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+            </div>
+            <div class="mb-3">
+                <textarea class="form-control" id="message" rows="5" placeholder="Your Message" required></textarea>
+            </div>
+            <button class="btn btn-primary" id="sendMessage">Send Message</button>
+        </div>
+        <div class="text-center mt-4">
+            <p><i class="fas fa-phone me-2"></i> +91 8157034721</p>
+            <p><i class="fas fa-envelope me-2"></i> pritam2chatterjee@gmail.com</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Pritam. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/pritam2chatterjee/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/PritamChatterjee" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- AOS JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+
+        // Smooth scrolling and active nav link
+        $('a[href^="#"]').on('click', function(e) {
+            e.preventDefault();
+            const target = $(this.getAttribute('href'));
+            if (target.length) {
+                $('html, body').animate({
+                    scrollTop: target.offset().top - 80
+                }, 800);
+                $('.navbar-nav .nav-link').removeClass('active');
+                $(this).addClass('active');
+            }
+        });
+
+        // Update active nav link on scroll
+        $(window).on('scroll', function() {
+            let scrollPos = $(document).scrollTop();
+            $('section').each(function() {
+                let currSection = $(this);
+                let top = currSection.offset().top - 100;
+                let bottom = top + currSection.outerHeight();
+                let id = currSection.attr('id');
+                if (scrollPos >= top && scrollPos <= bottom) {
+                    $('.navbar-nav .nav-link').removeClass('active');
+                    $(`.navbar-nav .nav-link[href="#${id}"]`).addClass('active');
+                }
+            });
+        });
+
+        // Form validation and submission
+        $('#sendMessage').on('click', function() {
+            const name = $('#name').val().trim();
+            const email = $('#email').val().trim();
+            const message = $('#message').val().trim();
+
+            if (name && email && message) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    alert('Please enter a valid email address.');
+                    $('#email').addClass('is-invalid');
+                    return;
+                }
+
+                alert('Thank you for your message! I will respond soon.');
+                $('#name, #email, #message').val('');
+                $('.form-control').removeClass('is-valid is-invalid');
+            } else {
+                alert('Please fill out all fields.');
+                $('.form-control').each(function() {
+                    if (!$(this).val().trim()) {
+                        $(this).addClass('is-invalid');
+                    } else {
+                        $(this).removeClass('is-invalid').addClass('is-valid');
+                    }
+                });
+            }
+        });
+
+        // Real-time form input validation
+        $('.form-control').on('input', function() {
+            if ($(this).val().trim()) {
+                $(this).removeClass('is-invalid').addClass('is-valid');
+            } else {
+                $(this).removeClass('is-valid');
+            }
+        });
+    </script>
+</body>
+</html>
