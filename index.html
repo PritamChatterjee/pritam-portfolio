@@ -461,21 +461,32 @@
             <p><i class="fas fa-envelope me-2"></i> pritam2chatterjee@gmail.com</p>
         </div>
         </form> -->
-        <form
-  action="https://formspree.io/f/xeokyppa"
-  method="POST"
->
-  <label>
-    Your email:
-    <input type="email" name="email">
-  </label>
-  <label>
-    Your message:
-    <textarea name="message"></textarea>
-  </label>
-  <!-- your other form fields go here -->
-  <button type="submit">Send</button>
+        <form action="https://formspree.io/f/xeokyppa" method="POST">
+  <div class="mb-3">
+    <label for="email" class="form-label">Your Email:</label>
+    <input type="email" class="form-control" id="email" name="email" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="message" class="form-label">Your Message:</label>
+    <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+  </div>
+
+  <!-- Optional: Add Name Field -->
+  <div class="mb-3">
+    <label for="name" class="form-label">Your Name:</label>
+    <input type="text" class="form-control" id="name" name="name">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Send</button>
+
+  <!-- Contact Info -->
+  <div class="text-center mt-4">
+    <p><i class="fas fa-phone me-2"></i> +91 8157034721</p>
+    <p><i class="fas fa-envelope me-2"></i> pritam2chatterjee@gmail.com</p>
+  </div>
 </form>
+
     </section>
 
     <footer>
